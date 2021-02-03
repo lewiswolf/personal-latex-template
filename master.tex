@@ -1,0 +1,40 @@
+\documentclass[a4paper, 11pt]{article}
+% \documentclass[a4paper, 11pt]{journal}  
+
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+\usepackage{amssymb}                    % maths
+\usepackage{mathtools}                  % maths
+\usepackage[none]{hyphenat}             % deals with unnecessary word breaks
+\usepackage[hidelinks]{hyperref}        % makes things clickable
+\usepackage{apacite}                    % bib style - APA
+\usepackage{natbib}                     % bib support for APA
+\usepackage{minted}                     % syntax highlighting:
+% \begin{minted}{python}
+% print('hello world')
+% \end{minted}
+\usepackage{graphicx}                   % import images with \includegraphics{filepath}
+\usepackage{xcolor}                     % change font color with \textcolor{color}{text}
+\usepackage{pdfpages}                   % include pdfs with \includepdf{link}
+\usepackage{float}                      % support for better figure placement
+\usepackage{enumitem}                   % support for better \begin{enumerate} 
+\usepackage{lipsum}                     % lorem ipsum \lipsum[seed]
+
+\setlength{\parindent}{30pt}
+\pagestyle{plain}
+
+\providecommand\abstractname{Abstract}
+\def\abstract{}
+\def\endabstract{}
+\renewenvironment{abstract}{%
+    \setlength{\parindent}{0pt}
+    \section*{\hspace{2cm}Abstract}
+    \small
+    \list{}{\leftmargin2cm \rightmargin\leftmargin}
+    \item\relax
+}{%
+    \endlist\par\bigskip
+}
+
+\begin{document}
+    \include{document}
+\end{document}

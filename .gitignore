@@ -1,0 +1,13 @@
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.gz
+*.pdf
+*.bbl
+*.blg
+
+/_minted-master
+
+.DS_Store
