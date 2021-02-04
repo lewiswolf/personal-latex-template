@@ -1,8 +1,8 @@
 ## Prerequisites
 
-Of course, you need to have a LaTeX compiler installed, I personally use [MacTex](https://www.tug.org/mactex/).
+Of course, you need to have a LaTeX compiler installed, I personally use [MacTex](https://formulae.brew.sh/cask/mactex-no-gui).
 
-This LaTeX template was designed to be used with VSCode. Upon opening the project directory in VSCode for the first time, you will be prompted to install the suggested extensions, which are also preconfigured by this repository.
+This LaTeX template was designed to be used with VSCode. Upon opening the project directory in VSCode for the first time, you will be prompted to install the suggested extensions, which are required and preconfigured by this repository.
 
 This template also requires you to also install [pipenv](https://pypi.org/project/pipenv/) or everything breaks.
 
