@@ -2,8 +2,10 @@
 	"latex-workshop.latex.tools": [
 		{
 			"name": "latexmk",
-			"command": "latexmk",
+			"command": "pipenv",
 			"args": [
+				"run",
+				"latexmk",
 				"--shell-escape",
 				"-synctex=1",
 				"-interaction=nonstopmode",
@@ -16,8 +18,10 @@
 		},
 		{
 			"name": "lualatexmk",
-			"command": "latexmk",
+			"command": "pipenv",
 			"args": [
+				"run",
+				"latexmk",
 				"-synctex=1",
 				"-interaction=nonstopmode",
 				"-file-line-error",
@@ -29,44 +33,52 @@
 		},
 		{
 			"name": "latexmk_rconly",
-			"command": "latexmk",
-			"args": ["%DOC%"],
+			"command": "pipenv",
+			"args": ["run", "latexmk", "%DOC%"],
 			"env": {}
 		},
 		{
 			"name": "pdflatex",
-			"command": "pdflatex",
-			"args": ["--shell-escape", "-synctex=1", "-interaction=nonstopmode", "-file-line-error", "%DOC%"],
+			"command": "pipenv",
+			"args": [
+				"run",
+				"pdflatex",
+				"--shell-escape",
+				"-synctex=1",
+				"-interaction=nonstopmode",
+				"-file-line-error",
+				"%DOC%"
+			],
 			"env": {}
 		},
 		{
 			"name": "bibtex",
-			"command": "bibtex",
-			"args": ["%DOCFILE%"],
+			"command": "pipenv",
+			"args": ["run", "bibtex", "%DOCFILE%"],
 			"env": {}
 		},
 		{
 			"name": "rnw2tex",
-			"command": "Rscript",
-			"args": ["-e", "knitr::opts_knit$set(concordance = TRUE); knitr::knit('%DOCFILE_EXT%')"],
+			"command": "pipenv",
+			"args": ["run", "Rscript", "-e", "knitr::opts_knit$set(concordance = TRUE); knitr::knit('%DOCFILE_EXT%')"],
 			"env": {}
 		},
 		{
 			"name": "jnw2tex",
-			"command": "julia",
-			"args": ["-e", "using Weave; weave(\"%DOC_EXT%\", doctype=\"tex\")"],
+			"command": "pipenv",
+			"args": ["run", "julia", "-e", "using Weave; weave(\"%DOC_EXT%\", doctype=\"tex\")"],
 			"env": {}
 		},
 		{
 			"name": "jnw2texmintex",
-			"command": "julia",
-			"args": ["-e", "using Weave; weave(\"%DOC_EXT%\", doctype=\"texminted\")"],
+			"command": "pipenv",
+			"args": ["run", "julia", "-e", "using Weave; weave(\"%DOC_EXT%\", doctype=\"texminted\")"],
 			"env": {}
 		},
 		{
 			"name": "tectonic",
-			"command": "tectonic",
-			"args": ["--synctex", "--keep-logs", "%DOC%.tex"],
+			"command": "pipenv",
+			"args": ["run", "tectonic", "--synctex", "--keep-logs", "%DOC%.tex"],
 			"env": {}
 		}
 	],

@@ -8,6 +8,7 @@
 *.bbl
 *.blg
 
+pipfile.lock
 /_minted-master
 
 .DS_Store

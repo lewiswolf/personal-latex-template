@@ -8,10 +8,7 @@
 \usepackage[hidelinks]{hyperref}        % makes things clickable
 \usepackage{apacite}                    % bib style - APA
 \usepackage{natbib}                     % bib support for APA
-\usepackage{minted}                     % syntax highlighting:
-% \begin{minted}{python}
-% print('hello world')
-% \end{minted}
+\usepackage{minted}                     % syntax highlighting
 \usepackage{graphicx}                   % import images with \includegraphics{filepath}
 \usepackage{xcolor}                     % change font color with \textcolor{color}{text}
 \usepackage{pdfpages}                   % include pdfs with \includepdf{link}
@@ -19,9 +16,11 @@
 \usepackage{enumitem}                   % support for better \begin{enumerate} 
 \usepackage{lipsum}                     % lorem ipsum \lipsum[seed]
 
+% page layout
 \setlength{\parindent}{30pt}
 \pagestyle{plain}
 
+% Abstract style
 \providecommand\abstractname{Abstract}
 \def\abstract{}
 \def\endabstract{}
@@ -35,6 +34,7 @@
     \endlist\par\bigskip
 }
 
+% the doco
 \begin{document}
     \include{document}
 \end{document}
