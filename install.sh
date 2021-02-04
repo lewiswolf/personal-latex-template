@@ -12,4 +12,4 @@ then
         echo "Or nothing will work."
         exit
 fi
-pipenv lock
+pipenv install
