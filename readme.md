@@ -1,10 +1,16 @@
-## Installation
+## Prerequisites
 
 Of course, you need to have a LaTeX compiler installed, I personally use [MacTex](https://www.tug.org/mactex/).
 
 This LaTeX template was designed to be used with VSCode. Upon opening the project directory in VSCode for the first time, you will be prompted to install the suggested extensions, which are also preconfigured by this repository.
 
 ## Usage
+
+Easiest way to get the template up and running is to create your working directory and then run the install.sh.
+
+```
+~\my_dir $ sh install.sh
+```
 
 To switch between _article_ and _journal_ document types, uncomment the top lines in both the master.tex and document.tex. Default is _article_.
 
