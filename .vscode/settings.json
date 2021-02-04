@@ -82,6 +82,7 @@
 			"env": {}
 		}
 	],
+	"latex-workshop.latex.autoClean.run": "onBuilt",
 	"latex-workshop.view.pdf.viewer": "tab",
 	"latex-workshop.chktex.enabled": true,
 	"cSpell.language": "en-GB",
