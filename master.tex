@@ -15,6 +15,7 @@
 \usepackage{float}                      % support for better figure placement
 \usepackage{enumitem}                   % support for better \begin{enumerate} 
 \usepackage{lipsum}                     % lorem ipsum \lipsum[seed]
+\usepackage{datetime}                   % time itself
 
 % page layout
 \setlength{\parindent}{30pt}
@@ -33,6 +34,10 @@
 }{%
     \endlist\par\bigskip
 }
+
+% format date
+\newdateformat{getDate}{%
+\THEDAY~\monthname[\THEMONTH]~\THEYEAR}
 
 % the doco
 \begin{document}
