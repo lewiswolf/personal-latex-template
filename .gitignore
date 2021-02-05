@@ -9,6 +9,6 @@
 *.blg
 
 pipfile.lock
-/_minted-master
+/_minted-index
 
 .DS_Store
