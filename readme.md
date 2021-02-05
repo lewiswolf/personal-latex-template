@@ -10,9 +10,9 @@ This template also requires you to install [pipenv](https://pypi.org/project/pip
 
 The easiest way to get the template up and running is to download install.sh and run `$ sh install.sh` in your project directory.
 
-To switch between _article_ and _journal_ document types, uncomment the top lines in both the master.tex and document.tex. Default is _article_.
+To switch between _article_ and _journal_ document types, uncomment the top lines in both the index.tex and document.tex. Default is _article_.
 
-To add chapters or other tex files to your master.tex file, use `\include{filename}` for .tex files and `\includepdf{filename.pdf}` for everything else.
+To add chapters or other tex files to your index.tex file, use `\include{filename}` for .tex files and `\includepdf{filename.pdf}` for everything else.
 
 I'm a big fan of the APA citation and reference style, so to cite things use `\citep{}` for a parenthetical citation or `\citet{}` for a text-style citation.
 
