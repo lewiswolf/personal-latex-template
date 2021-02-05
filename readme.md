@@ -4,7 +4,7 @@ Of course, you need to have a LaTeX compiler installed, I personally use [MacTex
 
 This LaTeX template was designed to be used with VSCode. Upon opening the project directory in VSCode for the first time, you will be prompted to install the suggested extensions, which are required and preconfigured by this repository.
 
-This template also requires you to also install [pipenv](https://pypi.org/project/pipenv/) or everything breaks.
+This template also requires you to install [pipenv](https://pypi.org/project/pipenv/) or else everything breaks.
 
 ## Usage
 
