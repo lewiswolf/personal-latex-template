@@ -1,6 +1,7 @@
 % spell-checker: disable
 % spellchecker: disable
 \usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+\usepackage[utf8]{inputenc}             % ASCII encoding
 \usepackage{amssymb}                    % maths
 \usepackage{mathtools}                  % maths
 \usepackage[none]{hyphenat}             % less word breaks more kerning
@@ -16,11 +17,42 @@
 \usepackage{lipsum}                     % lorem ipsum \lipsum[seed]
 \usepackage{datetime}                   % time itself
 
-% page layout
+% Page Layout
 \setlength{\parindent}{30pt}
 \pagestyle{plain}
 
-% Abstract style
+\makeatletter%
+% Title Style for Article
+\@ifclassloaded{article}{
+    \renewcommand*{\title}[1]{\gdef\@title{%
+        \vspace{-16px}
+        \textbf{#1}
+    }}
+    \renewcommand*{\author}[1]{\gdef\@author{
+        \textit{#1}
+    }}
+    \renewcommand*{\date}[1]{\gdef\@date{
+        \normalfont{#1}
+    }}
+}{}
+% Title Style for Journal
+\@ifclassloaded{journal}{
+    \renewcommand*{\title}[1]{\gdef\@title{%
+        \vspace{-40px}
+        \hspace{-7px} % dno why?
+        #1
+    }}
+    \renewcommand*{\subtitle}[1]{\gdef\@subtitle{%
+        \textit{#1}
+        \vspace{-16px}
+    }}
+    \renewcommand*{\author}[1]{\gdef\@author{
+        \textup{\normalsize\sffamily{#1}}
+    }}
+}{}
+\makeatother
+
+% Abstract Style
 \providecommand\abstractname{Abstract}
 \def\abstract{}
 \def\endabstract{}
@@ -34,6 +66,6 @@
     \endlist\par\bigskip
 }
 
-% format date
+% Format Date
 \newdateformat{getDate}{%
 \THEDAY~\monthname[\THEMONTH]~\THEYEAR}
