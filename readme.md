@@ -8,7 +8,7 @@ This template also requires you to install [pipenv](https://pypi.org/project/pip
 
 ## Usage
 
-The easiest way to get the template up and running is to download install.sh and run `$ sh install.sh` in your project directory.
+The easiest way to get the template up and running is to download install.sh and run `$ sh install.sh` in your project directory, or `$ sh install.sh --nocode` for an editor-neutral approach.
 
 To switch between _article_ and _journal_ document types, uncomment the top lines in both the index.tex and document.tex. Default is _article_.
 
