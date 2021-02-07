@@ -23,15 +23,15 @@
 
 \makeatletter%
 % Title Style for Article
-\@ifclassloaded{article}{
+\@ifclassloaded{article}{%
     \renewcommand*{\title}[1]{\gdef\@title{%
         \vspace{-16px}
         \textbf{#1}
     }}
-    \renewcommand*{\author}[1]{\gdef\@author{
+    \renewcommand*{\author}[1]{\gdef\@author{%
         \textit{#1}
     }}
-    \renewcommand*{\date}[1]{\gdef\@date{
+    \renewcommand*{\date}[1]{\gdef\@date{%
         \normalfont{#1}
     }}
 }{}
@@ -46,7 +46,7 @@
         \textit{#1}
         \vspace{-16px}
     }}
-    \renewcommand*{\author}[1]{\gdef\@author{
+    \renewcommand*{\author}[1]{\gdef\@author{%
         \textup{\normalsize\sffamily{#1}}
     }}
 }{}
