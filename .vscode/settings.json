@@ -34,7 +34,11 @@
 		{
 			"name": "latexmk_rconly",
 			"command": "pipenv",
-			"args": ["run", "latexmk", "%DOC%"],
+			"args": [
+				"run",
+				"latexmk",
+				"%DOC%"
+			],
 			"env": {}
 		},
 		{
@@ -54,31 +58,56 @@
 		{
 			"name": "bibtex",
 			"command": "pipenv",
-			"args": ["run", "bibtex", "%DOCFILE%"],
+			"args": [
+				"run",
+				"bibtex",
+				"%DOCFILE%"
+			],
 			"env": {}
 		},
 		{
 			"name": "rnw2tex",
 			"command": "pipenv",
-			"args": ["run", "Rscript", "-e", "knitr::opts_knit$set(concordance = TRUE); knitr::knit('%DOCFILE_EXT%')"],
+			"args": [
+				"run",
+				"Rscript",
+				"-e",
+				"knitr::opts_knit$set(concordance = TRUE); knitr::knit('%DOCFILE_EXT%')"
+			],
 			"env": {}
 		},
 		{
 			"name": "jnw2tex",
 			"command": "pipenv",
-			"args": ["run", "julia", "-e", "using Weave; weave(\"%DOC_EXT%\", doctype=\"tex\")"],
+			"args": [
+				"run",
+				"julia",
+				"-e",
+				"using Weave; weave(\"%DOC_EXT%\", doctype=\"tex\")"
+			],
 			"env": {}
 		},
 		{
 			"name": "jnw2texmintex",
 			"command": "pipenv",
-			"args": ["run", "julia", "-e", "using Weave; weave(\"%DOC_EXT%\", doctype=\"texminted\")"],
+			"args": [
+				"run",
+				"julia",
+				"-e",
+				"using Weave; weave(\"%DOC_EXT%\", doctype=\"texminted\")"
+			],
 			"env": {}
 		},
 		{
 			"name": "tectonic",
 			"command": "pipenv",
-			"args": ["run", "tectonic", "--synctex", "--keep-logs", "%DOC%.tex"],
+			"args": [
+				"run",
+				"tectonic",
+				"--synctex",
+				"--keep-logs",
+				"%DOC%.tex"
+			],
 			"env": {}
 		}
 	],
@@ -87,5 +116,7 @@
 	"latex-workshop.view.pdf.viewer": "tab",
 	"latex-workshop.chktex.enabled": false,
 	"cSpell.language": "en-GB",
-	"cSpell.enabledLanguageIds": ["latex"]
+	"cSpell.enabledLanguageIds": [
+		"latex"
+	]
 }
