@@ -2,12 +2,6 @@
 
 vscode=true
 
-git clone https://github.com/lewiswolf/personal-latex-template.git
-cp -a personal-latex-template/. .
-rm -rf personal-latex-template
-rm -rf .git
-rm .gitignore
-
 for arg in "$@"
 do       
 case $arg in
@@ -16,7 +10,13 @@ case $arg in
 esac
 done
 
-if ["$vscode"=true]
+git clone https://github.com/lewiswolf/personal-latex-template.git
+cp -a personal-latex-template/. .
+rm -rf personal-latex-template
+rm -rf .git
+rm .gitignore
+
+if $vscode
 then
 	rm .editorconfig
 else
