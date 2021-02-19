@@ -1,5 +1,7 @@
 #!/bin/bash
 
+vscode=true
+
 git clone https://github.com/lewiswolf/personal-latex-template.git
 cp -a personal-latex-template/. .
 rm -rf personal-latex-template
@@ -10,9 +12,16 @@ for arg in "$@"
 do       
 case $arg in
 	-n|--nocode)
-	rm -rf .vscode
+	vscode=false
 esac
 done
+
+if ["$vscode"=true]
+then
+	rm .editorconfig
+else
+	rm -rf .vscode
+fi
 
 if ! command -v pipenv >/dev/null
 then
