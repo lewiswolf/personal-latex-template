@@ -1,4 +1,6 @@
 {
+	"editor.insertSpaces": false,
+	"editor.detectIndentation": false,
 	"latex-workshop.latex.tools": [
 		{
 			"name": "latexmk",
