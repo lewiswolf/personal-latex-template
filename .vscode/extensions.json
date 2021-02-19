@@ -1,3 +1,7 @@
 {
-	"recommendations": ["streetsidesoftware.code-spell-checker", "james-yu.latex-workshop", "geoffkaile.latex-count"]
+	"recommendations": [
+		"streetsidesoftware.code-spell-checker",
+		"james-yu.latex-workshop",
+		"geoffkaile.latex-count"
+	]
 }
