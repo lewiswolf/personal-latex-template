@@ -50,6 +50,20 @@
 		\textup{\normalsize\sffamily{#1}}
 	}}
 }{}
+% Title Style for Report
+\@ifclassloaded{report}{%
+	\renewcommand*{\title}[1]{\gdef\@title{%
+		\vspace{-16px}
+		\Huge{\textbf{#1}}
+	}}
+	\renewcommand*{\author}[1]{\gdef\@author{%
+		\textit{#1}
+	}}
+	\renewcommand*{\date}[1]{\gdef\@date{%
+		\vspace{16px}
+		\normalfont{#1}
+	}}
+}{}
 \makeatother
 
 % Abstract Style
@@ -73,6 +87,6 @@
 % Default Code Styles
 \setminted{obeytabs=true, tabsize=2, fontsize=\small}
 
-% bib style
+% Bib Style
 \bibliographystyle{apacite}
 \AtBeginDocument{\renewcommand{\APACrefYearMonthDay}[3]{\BBOP{#1}\BBCP}}
