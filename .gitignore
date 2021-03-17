@@ -13,3 +13,4 @@ pipfile.lock
 
 .DS_Store
 todo.md
+*.ai
