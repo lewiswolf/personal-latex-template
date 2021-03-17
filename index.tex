@@ -1,16 +1,26 @@
 % \documentclass[a4paper, 11pt]{article}
 % \documentclass[a4paper, 11pt]{journal}
 \documentclass[a4paper, 11pt]{report}
-% \pagenumbering{roman}
 
 \input{template}
 
 \begin{document}
 	% REPORT PREAMBLE
-	\title{\LaTeX~Template}
+	\title{This is an imaginary, really long, stupidly worded, but incredibly useful, title}
 	\author{Lewis Wolstanholme}
+	\project{PhD Thesis}
+	\institution{School of Electronic Engineering and Computer Science \\ Queen Mary University of London}
 	\date{\getDate\today}
 	\maketitle
+	% \begin{abstract}
+	% 	\ldots
+	% \end{abstract}
+	\pagenumbering{roman}
+	\tableofcontents
+	% \pagenumbering{alpha}
+
+	% uncomment this to use citations
+	\nocite{*}
 
 	\include{document}
 \end{document}

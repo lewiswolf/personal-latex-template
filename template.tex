@@ -17,53 +17,74 @@
 \usepackage{lipsum}						% lorem ipsum \lipsum[seed]
 \usepackage{datetime}					% time itself
 
-% Page Layout
-\setlength{\parindent}{30pt}
-\pagestyle{plain}
-
 \makeatletter%
-% Title Style for Article
-\@ifclassloaded{article}{%
-	\renewcommand*{\title}[1]{\gdef\@title{%
-		\vspace{-16px}
-		\textbf{#1}
-	}}
-	\renewcommand*{\author}[1]{\gdef\@author{%
-		\textit{#1}
-	}}
-	\renewcommand*{\date}[1]{\gdef\@date{%
-		\normalfont{#1}
-	}}
-}{}
-% Title Style for Journal
-\@ifclassloaded{journal}{
-	\renewcommand*{\title}[1]{\gdef\@title{%
-		\vspace{-40px}
-		\hspace{-7px} % dno why?
-		#1
-	}}
-	\renewcommand*{\subtitle}[1]{\gdef\@subtitle{%
-		\textit{#1}
-		\vspace{-16px}
-	}}
-	\renewcommand*{\author}[1]{\gdef\@author{%
-		\textup{\normalsize\sffamily{#1}}
-	}}
-}{}
-% Title Style for Report
-\@ifclassloaded{report}{%
-	\renewcommand*{\title}[1]{\gdef\@title{%
-		\vspace{-16px}
-		\Huge{\textbf{#1}}
-	}}
-	\renewcommand*{\author}[1]{\gdef\@author{%
-		\textit{#1}
-	}}
-	\renewcommand*{\date}[1]{\gdef\@date{%
-		\vspace{16px}
-		\normalfont{#1}
-	}}
-}{}
+	% Title Style for Article
+	\@ifclassloaded{article}{%
+		\renewcommand*{\title}[1]{\gdef\@title{%
+			\vspace{-16px}
+			\textbf{#1}
+		}}
+		\renewcommand*{\author}[1]{\gdef\@author{%
+			\textit{#1}
+		}}
+		\renewcommand*{\date}[1]{\gdef\@date{%
+			\normalfont{#1}
+		}}
+	}{}
+
+	% Title Style for Journal
+	\@ifclassloaded{journal}{
+		\renewcommand*{\title}[1]{\gdef\@title{%
+			\vspace{-40px}
+			\hspace{-7px} % dno why?
+			#1
+		}}
+		\renewcommand*{\subtitle}[1]{\gdef\@subtitle{%
+			\textit{#1}
+			\vspace{-16px}
+		}}
+		\renewcommand*{\author}[1]{\gdef\@author{%
+			\textup{\normalsize\sffamily{#1}}
+		}}
+	}{}
+
+	% Title Style for Report
+	\@ifclassloaded{report}{%
+		\newcommand*{\project}[1]{\gdef\@project{%
+			#1
+		}}
+		\newcommand*{\institution}[1]{\gdef\@institution{%
+			#1
+		}}
+		\renewcommand{\maketitle}{
+			\thispagestyle{empty}
+			\setcounter{page}{0}
+			\definecolor{bg}{RGB}{34, 31, 32}
+			\pagecolor{bg}
+			\color{white}
+			\begin{center}
+				\phantom{.}
+				\vspace{2cm}
+				{\Huge \bf \@title \par}
+				\vspace{2.5cm}
+
+				{\LARGE \@author \par}
+				\vspace{2.5cm}
+
+
+				{\Large \@institution \par}
+				\vspace{2.5cm}
+
+				{\@project\par}
+				\vspace{2.5cm}
+
+				{\normalsize\@date}
+			\end{center}
+			\cleardoublepage
+			\pagecolor{white}
+			\color{black}
+		}
+	}{}
 \makeatother
 
 % Abstract Style
@@ -79,6 +100,10 @@
 }{%
 	\endlist\par\bigskip
 }
+
+% Page Layout
+\setlength{\parindent}{30pt}
+\pagestyle{plain}
 
 % Format Date
 \newdateformat{getDate}{%
