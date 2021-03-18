@@ -51,7 +51,11 @@
 	% Title Style for Report
 	\@ifclassloaded{report}{%
 		\newcommand*{\project}[1]{\gdef\@project{%
+		\ifx&#1&%
+			% #1 is empty
+	  	\else
 			#1
+		\fi
 		}}
 		\newcommand*{\institution}[1]{\gdef\@institution{%
 			#1
