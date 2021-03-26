@@ -6,7 +6,7 @@
 \usepackage{mathtools}				  	% maths
 \usepackage[none]{hyphenat}			 	% less word breaks more kerning
 \usepackage[hidelinks]{hyperref}		% makes things clickable
-\usepackage{apacite}					% bib style - APA
+\usepackage[nodoi]{apacite}				% bib style - APA
 \usepackage{natbib}						% bib support for APA
 \usepackage{minted}						% syntax highlighting
 \usepackage{graphicx}					% import images with \includegraphics{filepath}
@@ -51,11 +51,7 @@
 	% Title Style for Report
 	\@ifclassloaded{report}{%
 		\newcommand*{\project}[1]{\gdef\@project{%
-		\ifx&#1&%
-			% #1 is empty
-	  	\else
 			#1
-		\fi
 		}}
 		\newcommand*{\institution}[1]{\gdef\@institution{%
 			#1
