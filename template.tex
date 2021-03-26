@@ -90,7 +90,12 @@
 
 	% Abstract Styles
 	\@ifclassloaded{report}{%
-
+		\renewenvironment{abstract}{%
+			\vspace*{\fill}
+			\section*{\centering \bf Abstract}
+		}{%
+			\vspace*{\fill}
+		}
 	}{
 		\renewenvironment{abstract}{%
 			\setlength{\parindent}{0pt}
