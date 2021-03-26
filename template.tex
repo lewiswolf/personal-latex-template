@@ -86,21 +86,23 @@
 			\color{black}
 		}
 	}{}
-\makeatother
 
-% Abstract Style
-\providecommand\abstractname{Abstract}
-\def\abstract{}
-\def\endabstract{}
-\renewenvironment{abstract}{%
-	\setlength{\parindent}{0pt}
-	\section*{\hspace{2cm}Abstract}
-	\small
-	\list{}{\leftmargin2cm \rightmargin\leftmargin}
-	\item\relax
-}{%
-	\endlist\par\bigskip
-}
+
+	% Abstract Styles
+	\@ifclassloaded{report}{%
+
+	}{
+		\renewenvironment{abstract}{%
+			\setlength{\parindent}{0pt}
+			\section*{\hspace{2cm}Abstract}
+			\small
+			\list{}{\leftmargin2cm \rightmargin\leftmargin}
+			\item\relax
+		}{%
+			\endlist\par\bigskip
+		}
+	}
+\makeatother
 
 % Page Layout
 \setlength{\parindent}{30pt}
