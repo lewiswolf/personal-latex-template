@@ -124,8 +124,9 @@
 % Default Code Styles
 \setminted{obeytabs=true, tabsize=2, fontsize=\small}
 
-% Bib Style
 \AtBeginDocument{%
+	% Bib Style
 	\renewcommand{\APACrefYearMonthDay}[3]{\BBOP{#1}\BBCP}
+	% Chapter Counter
 	\setcounter{chapter}{-1}
 }
