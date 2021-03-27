@@ -20,13 +20,15 @@
 	\newpage
 	\pagenumbering{arabic}
 
-
 	\include{document}
 
 	% this stops the compiler throwing errors
 	\nocite{*}
+	
 	% Bibliography - this is compiled from bib.bib
-	\newpage
+	\cleardoublepage
+	\phantomsection
+	\addcontentsline{toc}{chapter}{References}
 	\bibliography{bib}
 	\bibliographystyle{apacite}
 \end{document}
