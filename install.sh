@@ -10,7 +10,7 @@ case $arg in
 esac
 done
 
-git clone https://github.com/lewiswolf/personal-latex-template.git
+git clone --single-branch --branch report https://github.com/lewiswolf/personal-latex-template.git
 cp -a personal-latex-template/. .
 rm -rf personal-latex-template
 rm -rf .git

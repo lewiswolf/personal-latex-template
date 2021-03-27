@@ -13,15 +13,20 @@
 	\date{\getDate\today}
 	\maketitle
 	\pagenumbering{roman}
-	% \begin{abstract}
-	% 	\ldots
-	% \end{abstract}
+	\begin{abstract}
+		\lipsum[1]\ldots
+	\end{abstract}
 	\tableofcontents
 	\newpage
 	\pagenumbering{arabic}
 
-	% uncomment this to use citations
-	\nocite{*}
 
 	\include{document}
+
+	% this stops the compiler throwing errors
+	\nocite{*}
+	% Bibliography - this is compiled from bib.bib
+	\newpage
+	\bibliography{bib}
+	\bibliographystyle{apacite}
 \end{document}
