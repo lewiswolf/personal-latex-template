@@ -1,6 +1,7 @@
 {
 	"editor.insertSpaces": false,
 	"editor.detectIndentation": false,
+	"latex-workshop.bibtex-format.tab": "tab",
 	"latex-workshop.latex.tools": [
 		{
 			"name": "latexmk",
