@@ -14,7 +14,7 @@ You can configure your document in index.tex, and easily switch between article,
 
 To add chapters or other tex files to your index.tex file, use `\include{filename}` for .tex files and `\includepdf{filename.pdf}` for everything else.
 
-I'm a big fan of the APA citation and reference style, so to cite things use `\citep{}` for a parenthetical citation or `\citet{}` for a text-style citation. To use citations, comment out the line `\nocite{*}` in _index.tex_ and populate _bib.bib_.
+I'm a big fan of the APA citation and reference style, so to cite things use `\citep{}` for a parenthetical citation or `\citet{}` for a text-style citation.
 
 All the cool maths packages are installed so your functions can be extra `\[ \mathcal{L} \mathbb{I} \mathsf{T} \]`.
 
