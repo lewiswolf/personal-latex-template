@@ -10,7 +10,7 @@ This template also requires you to install [pipenv](https://pypi.org/project/pip
 
 The easiest way to get the template up and running is to download install.sh and run `$ sh install.sh` in your project directory. To opt for an editor-neutral approach, use `$ sh install.sh --nocode`, but you will need to configure your own build tasks ( `pipenv run pdflatex ...` ).
 
-To switch between _article_ and _journal_ document types, uncomment the top lines in both the index.tex and document.tex. Default is _article_.
+You can configure your document in index.tex, and easily switch between article, journal and report documnet types.
 
 To add chapters or other tex files to your index.tex file, use `\include{filename}` for .tex files and `\includepdf{filename.pdf}` for everything else.
 
