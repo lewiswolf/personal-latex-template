@@ -12,3 +12,5 @@ pipfile.lock
 /_minted-index
 
 .DS_Store
+todo.md
+*.ai
