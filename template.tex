@@ -109,6 +109,18 @@
 			\endlist\par\bigskip
 		}
 	}
+
+	% Appendix Styles
+	\@ifclassloaded{report}{%
+			\renewenvironment{appendix}{%
+				\renewcommand*{\thechapter}{\Alph{chapter}}
+				\setcounter{chapter}{0}
+				\setcounter{section}{0}
+				\chapter*{Appendix}
+				\addcontentsline{toc}{chapter}{Appendix}
+				\setcounter{chapter}{1}
+			}{}
+	}
 \makeatother
 
 % Page Layout
