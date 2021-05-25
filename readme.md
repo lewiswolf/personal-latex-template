@@ -31,3 +31,10 @@ If you want nice syntax highlighting:
 print('hello world')
 \end{minted}
 ```
+
+Custon mathematics operators include:
+
+```latex
+\( \argmin \)
+\( \argmax \)
+```
