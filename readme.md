@@ -16,13 +16,18 @@ To add chapters or other tex files to your index.tex file, use `\include{filenam
 
 I'm a big fan of the APA citation and reference style, so to cite things use `\citep{}` for a parenthetical citation or `\citet{}` for a text-style citation.
 
-All the cool maths packages are installed so your functions can be extra `\[ \mathcal{L} \mathbb{I} \mathsf{T} \]`.
+All the cool maths packages are installed so your functions can be extra
 
-Add images with `\includegraphics[options]{filepath}`.
+```latex
+\[ \mathcal{L} \mathbb{I} \mathsf{T} \]
+```
 
-Change the font color with `\textcolor{color}{text}.`
+Custon mathematics operators include:
 
-Finish your essay early with `\lipsum[1]`.
+```latex
+\( \argmin \)
+\( \argmax \)
+```
 
 If you want nice syntax highlighting:
 
@@ -32,9 +37,8 @@ print('hello world')
 \end{minted}
 ```
 
-Custon mathematics operators include:
+Add images with `\includegraphics[options]{filepath}`.
 
-```latex
-\( \argmin \)
-\( \argmax \)
-```
+Change the font color with `\textcolor{color}{text}.`
+
+Finish your essay early with `\lipsum[1]`.
