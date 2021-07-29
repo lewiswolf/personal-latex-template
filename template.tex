@@ -59,7 +59,7 @@
 		\newcommand*{\institution}[1]{\gdef\@institution{%
 			#1
 		}}
-		\renewcommand*{\maketitle}{
+		\renewcommand*{\maketitle}{%
 			\thispagestyle{empty}
 			\setcounter{page}{0}
 			\definecolor{bg}{RGB}{34, 31, 32}
@@ -79,7 +79,7 @@
 				\vspace{3cm}
 				{\Large \@institution \par}
 				\vspace{1cm}
-				{\@project\par}
+				{\@project \par}
 				\vspace{1cm}
 				{\small\@date}
 				\vspace*{\fill}
