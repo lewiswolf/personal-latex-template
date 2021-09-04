@@ -10,13 +10,13 @@ if (Translator.BetterBibTeX && item.itemType === 'webpage') {
 	if (item.url) {
 		reference.add({
 			name: 'url',
-			bibtex: `{${reference.enc_verbatim({ value: item.url })}}`
-		});
+			bibtex: `{${reference.enc_verbatim({ value: item.url })}}`,
+		})
 	}
 	if (item.accessDate) {
 		reference.add({
 			name: 'urldate',
-			bibtex: `{${item.accessDate.replace(/\s*T?\d+:\d+:\d+.*/, '')}}`
-		});
+			bibtex: `{${item.accessDate.replace(/\s*T?\d+:\d+:\d+.*/, '')}}`,
+		})
 	}
 }
