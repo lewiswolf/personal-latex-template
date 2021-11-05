@@ -1,16 +1,22 @@
+# tex specific
+/_minted-index
 *.aux
+*.bbl
+*.blg
 *.fdb_latexmk
 *.fls
 *.log
 *.out
-*.gz
+*.synctex(busy)
+*.synctex.gz
+*.synctex.gz(busy)
+*.toc
+
+# package specific
 *.pdf
-*.bbl
-*.blg
+Pipfile.lock
 
-pipfile.lock
-/_minted-index
-
+# dev specific
+*.ai
 .DS_Store
 todo.md
-*.ai

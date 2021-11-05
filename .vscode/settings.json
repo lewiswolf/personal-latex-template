@@ -2,6 +2,20 @@
 	"editor.insertSpaces": false,
 	"editor.detectIndentation": false,
 	"latex-workshop.bibtex-format.tab": "tab",
+	"latex-workshop.latex.clean.fileTypes": [
+		"*.aux",
+		"*/*.aux",
+		"*.bbl",
+		"*.blg",
+		"*.fdb_latexmk",
+		"*.fls",
+		"*.log",
+		"*.out",
+		"*.synctex(busy)",
+		"*.synctex.gz",
+		"*.synctex.gz(busy)",
+		"*.toc"
+	],
 	"latex-workshop.latex.tools": [
 		{
 			"name": "latexmk",
