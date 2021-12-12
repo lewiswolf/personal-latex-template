@@ -121,6 +121,14 @@
 			\addcontentsline{toc}{chapter}{Appendix}
 		}{}
 	}
+
+	% Footnote Styles
+	\renewcommand*{\@makefntext}[1]{%
+		\vspace{4pt}
+		\hb@xt@0.5em{\hss\@makefnmark{}}
+		\vspace{-3.25ex}
+		\parindent=10pt\hangindent=10pt #1
+	}
 \makeatother
 
 % Page Layout
