@@ -37,6 +37,16 @@ print('hello world')
 \end{minted}
 ```
 
+Labels and cross references are automatically formatted and clickable:
+
+```latex
+\prettyref{chapter:chap1}
+\prettyref{section:sec1}
+
+\chapter{Some Chapter}\label{chapter:chap1}
+\section{Some Section}\label{section:sec1}
+```
+
 Add images with `\includegraphics[options]{filepath}`.
 
 Change the font color with `\textcolor{color}{text}.`

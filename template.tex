@@ -8,6 +8,7 @@
 \usepackage{amssymb}					% maths
 \usepackage{mathtools}				  	% maths
 \usepackage[none]{hyphenat}			 	% less word breaks more kerning
+\usepackage{prettyref}					% label and reference autoformatting
 \usepackage[hidelinks]{hyperref}		% makes things clickable
 \usepackage[nodoi]{apacite}				% bib style - APA
 \usepackage{natbib}						% bib support for APA
@@ -142,13 +143,17 @@
 % Format Chapter Headings
 \titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter{ }}{0pt}{\Huge\bf}
 
-% Default Code Styles
-\setminted{obeytabs=true, tabsize=2, fontsize=\small}
+% Label and Reference Stylings
+\newrefformat{chapter}{\hyperref[{#1}]{chapter~\ref*{#1}}}
+\newrefformat{section}{\hyperref[{#1}]{section~\ref*{#1}}}
 
 \AtBeginDocument{%
 	% Bib Style
 	\renewcommand{\APACrefYearMonthDay}[3]{\BBOP{#1}\BBCP}
 }
+
+% Default Code Styles
+\setminted{obeytabs=true, tabsize=2, fontsize=\small}
 
 % Math Operators
 \DeclareMathOperator*{\argmax}{argmax}
