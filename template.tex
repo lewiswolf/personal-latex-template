@@ -147,14 +147,16 @@
 \newrefformat{chapter}{\hyperref[{#1}]{chapter~\ref*{#1}}}
 \newrefformat{section}{\hyperref[{#1}]{section~\ref*{#1}}}
 
-\AtBeginDocument{%
-	% Bib Style
-	\renewcommand{\APACrefYearMonthDay}[3]{\BBOP{#1}\BBCP}
-}
-
 % Default Code Styles
 \setminted{obeytabs=true, tabsize=4, fontsize=\small}
 
 % Math Operators
 \DeclareMathOperator*{\argmax}{argmax}
 \DeclareMathOperator*{\argmin}{argmin}
+
+\AtBeginDocument{%
+	% Bib Style
+	\renewcommand{\APACrefYearMonthDay}[3]{\BBOP{#1}\BBCP}
+	% Handle Word Breaks
+	\sloppy
+}
