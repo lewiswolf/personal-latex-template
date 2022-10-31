@@ -17,6 +17,7 @@
 Pipfile.lock
 
 # dev specific
+/unused
 *.ai
 .DS_Store
 todo.md
