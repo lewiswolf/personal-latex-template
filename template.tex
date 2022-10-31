@@ -126,9 +126,8 @@
 	% Footnote Styles
 	\renewcommand*{\@makefntext}[1]{%
 		\vspace{4pt}
-		\hb@xt@0.5em{\hss\@makefnmark{}}
-		\vspace{-3.25ex}
-		\parindent=10pt\hangindent=10pt #1
+		\parindent=0pt\hangindent=14pt 
+		\noindent\hspace{10pt}\hb@xt@0pt{\hss\tiny{\raisebox{0.25em}{\@thefnmark}}} #1
 	}
 \makeatother
 
