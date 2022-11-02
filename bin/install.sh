@@ -17,6 +17,7 @@ rm -rf .git
 rm -rf bin
 rm -rf zotero
 rm .gitignore
+rm readme.md
 
 if $vscode
 then
