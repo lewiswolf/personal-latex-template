@@ -1,13 +1,13 @@
 % spell-checker: disable
 % spellchecker: disable
 \usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
-\usepackage[utf8]{inputenc}			 	% ASCII encoding
+\usepackage[utf8]{inputenc}				% ASCII encoding
 \usepackage[english]{babel}				% use this to add extra languages
 \usepackage[T1]{fontenc}				% font encoding
 \usepackage{lmodern}					% default font
 \usepackage{amssymb}					% maths
-\usepackage{mathtools}				  	% maths
-\usepackage[none]{hyphenat}			 	% less word breaks more kerning
+\usepackage{mathtools}					% maths
+\usepackage[none]{hyphenat}				% less word breaks more kerning
 \usepackage{prettyref}					% label and reference autoformatting
 \usepackage[hidelinks]{hyperref}		% makes things clickable
 \usepackage[nodoi]{apacite}				% bib style - APA
@@ -28,9 +28,13 @@
 		\renewcommand*{\title}[1]{\gdef\@title{%
 			\vspace{-16px}
 			\textbf{#1}
+			% Set PDF Metadata
+			\hypersetup{pdftitle={#1}}
 		}}
 		\renewcommand*{\author}[1]{\gdef\@author{%
 			\textit{#1}
+			% Set PDF Metadata
+			\hypersetup{pdfauthor={#1}}
 		}}
 		\renewcommand*{\date}[1]{\gdef\@date{%
 			\normalfont{#1}
@@ -43,6 +47,8 @@
 			\vspace{-40px}
 			\hspace{-7px} % dno why?
 			#1
+			% Set PDF Metadata
+			\hypersetup{pdftitle={#1}}
 		}}
 		\renewcommand*{\subtitle}[1]{\gdef\@subtitle{%
 			\textit{#1}
@@ -50,11 +56,69 @@
 		}}
 		\renewcommand*{\author}[1]{\gdef\@author{%
 			\textup{\normalsize\sffamily{#1}}
+			% Set PDF Metadata
+			\hypersetup{pdfauthor={#1}}
 		}}
+		% This redefinition of maketitle fixes a bug that occurs when adding \hypersetup to \@title.
+		\renewcommand*{\maketitle}{%
+			\setcounter {footnote}{0}\par 
+			\begingroup
+			\renewcommand*{\thefootnote}{%
+				\fnsymbol{footnote}
+			}
+			\def \@makefnmark{%
+				\hbox to\z@ {$\m@th ^{\@thefnmark }$\hss }
+			}\long
+			\def \@makefntext ##1{%
+				\parindent 1em\noindent \hbox to1.8em{\hss $\m@th ^{\@thefnmark }$}##1
+			}\if@twocolumn 
+				\ifnum \col@number =\@ne \@maketitle
+				\else \twocolumn [{\@maketitle} ]\fi 
+			\else 
+				\newpage \global \@topnum \z@ \@maketitle \fi 
+			\thispagestyle {plain}
+			\@thanks \endgroup
+			\setcounter {footnote}{0}
+			\if@journal
+				\typeout {Article: \@shortauthor }
+				\setcounter {section}{0}
+				\setcounter {subsection}{0}
+				\setcounter {subsubsection}{0}
+				\setcounter {paragraph}{0}
+				\setcounter {subparagraph}{0}
+				\setcounter {figure}{0}
+				\setcounter {table}{0}
+				\setcounter {equation}{0}
+				\addcontentsline {jou}{titles}
+				{\sss@font \@shortauthor }
+				\hfill \mbox {}\vskip \normallineskip 
+				\if@twoside 
+					\ifx \@oddrunhead \@empty 
+						\ifx \@evenrunhead \@empty \markboth {\@shortauthor }{\@shorttitle }
+						\else \markboth {}{\@shortauthor , \@shorttitle }\fi 
+					\else \markboth {\@shortauthor , \@shorttitle }{}\fi 
+					\else \markright {\@shortauthor , \@shorttitle } \fi 
+					\else \let \maketitle \relax \let \@maketitle \relax \fi 
+					\gdef \@thanks {}
+					\gdef \@author {}
+					\gdef \@title {}
+					\gdef \@institution {}
+					\gdef \@subtitle {}
+		}
 	}{}
 
 	% Title Style for Report
 	\@ifclassloaded{report}{%
+		\renewcommand*{\author}[1]{\gdef\@author{%
+			% Set PDF Metadata
+			\hypersetup{pdfauthor={#1}}
+			#1
+		}}
+		\renewcommand*{\title}[1]{\gdef\@title{%
+			% Set PDF Metadata
+			\hypersetup{pdftitle={#1}}
+			#1
+		}}
 		\newcommand*{\project}[1]{\gdef\@project{%
 			#1
 		}}
@@ -158,4 +222,6 @@
 	\renewcommand{\APACrefYearMonthDay}[3]{\BBOP{#1}\BBCP}
 	% Handle Word Breaks
 	\sloppy
+	% Set PDF Metadata
+	\hypersetup{pdfcreator={Lewis Wolstanholme's Personal LaTeX Template}}
 }
