@@ -47,9 +47,11 @@ Labels and cross references are automatically formatted and clickable:
 
 ```latex
 \prettyref{chapter:chap1}
+\prettyref{figure:fig1}
 \prettyref{section:sec1}
 
 \chapter{Some Chapter}\label{chapter:chap1}
+\begin{figure}\label{figure:fig1}\end{figure}
 \section{Some Section}\label{section:sec1}
 ```
 
