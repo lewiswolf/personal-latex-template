@@ -16,7 +16,13 @@ To add chapters or other tex files to your index.tex file, use `\include{filenam
 
 I'm a big fan of the APA citation and reference style, so to cite things use `\citep{}` for a parenthetical citation or `\citet{}` for a text-style citation.
 
-All the cool maths packages are installed so your functions can be extra
+Talk about music as much as you want:
+
+```latex
+D\musFlat{} is better than C\musSharp{}.
+```
+
+All the cool maths packages are installed so your functions can be extra:
 
 ```latex
 \[ \mathcal{L} \mathbb{I} \mathsf{T} \]
