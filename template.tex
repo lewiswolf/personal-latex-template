@@ -220,6 +220,14 @@
 \DeclareMathOperator*{\argmax}{argmax}
 \DeclareMathOperator*{\argmin}{argmin}
 
+% Default Figure Position
+\makeatletter
+	% Command for Figure and Table styles.
+	% https://tex.stackexchange.com/questions/140568/how-to-set-default-positioning-of-figure-table-document-wide
+	\providecommand*\setfloatlocations[2]{\@namedef{fps@#1}{#2}}
+\makeatother
+\setfloatlocations{figure}{H}
+
 \AtBeginDocument{%
 	% Bib Style
 	\renewcommand{\APACrefYearMonthDay}[3]{\BBOP{#1}\BBCP}
