@@ -220,8 +220,8 @@
 \DeclareMathOperator*{\argmax}{argmax}
 \DeclareMathOperator*{\argmin}{argmin}
 
-% Default Figure Position
-\makeatletter
+% Default Figure Styles
+\makeatletter%
 	% Command for Figure and Table styles.
 	% https://tex.stackexchange.com/questions/140568/how-to-set-default-positioning-of-figure-table-document-wide
 	\providecommand*\setfloatlocations[2]{\@namedef{fps@#1}{#2}}
@@ -229,7 +229,8 @@
 \setfloatlocations{figure}{H}
 
 \AtBeginDocument{%
-	% Bib Style
+	% Bibliography Styles
+	\bibliographystyle{apacite}
 	\renewcommand{\APACrefYearMonthDay}[3]{\BBOP{#1}\BBCP}
 	% Handle Word Breaks
 	\sloppy

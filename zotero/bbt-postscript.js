@@ -6,19 +6,31 @@ For information on installing these scripts, see here =>
 
 if (Translator.BetterBibTeX) {
 	switch (item.itemType) {
-		// add url and urldate to webpage citations
-		case 'webpage':
-			reference.remove('howpublished')
-			if (item.url) {
+		// format an artwork
+		case 'artwork':
+			// add format
+			if (item.medium) {
+				reference.add({
+					name: 'type',
+					bibtex: `{${item.medium.replace(/\&/, '\\&')}}`,
+				})
+			}
+			// add url and urldate
+			if (item.url && item.accessDate) {
 				reference.add({
 					name: 'url',
 					bibtex: `{${reference.enc_verbatim({ value: item.url })}}`,
 				})
-			}
-			if (item.accessDate) {
 				reference.add({
 					name: 'urldate',
 					bibtex: `{${item.accessDate.replace(/\s*T?\d+:\d+:\d+.*/, '')}}`,
+				})
+			}
+			// add how published
+			if (item.libraryCatalog) {
+				reference.add({
+					name: 'publisher',
+					bibtex: `{${item.libraryCatalog}}`,
 				})
 			}
 		// format a video recording
@@ -44,6 +56,21 @@ if (Translator.BetterBibTeX) {
 					name: 'url',
 					bibtex: `{${reference.enc_verbatim({ value: item.url })}}`,
 				})
+				reference.add({
+					name: 'urldate',
+					bibtex: `{${item.accessDate.replace(/\s*T?\d+:\d+:\d+.*/, '')}}`,
+				})
+			}
+		// add url and urldate to webpage citations
+		case 'webpage':
+			reference.remove('howpublished')
+			if (item.url) {
+				reference.add({
+					name: 'url',
+					bibtex: `{${reference.enc_verbatim({ value: item.url })}}`,
+				})
+			}
+			if (item.accessDate) {
 				reference.add({
 					name: 'urldate',
 					bibtex: `{${item.accessDate.replace(/\s*T?\d+:\d+:\d+.*/, '')}}`,
