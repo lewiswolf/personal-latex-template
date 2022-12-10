@@ -1,15 +1,24 @@
 #!/bin/bash
 
 vscode=true
+env=false
 
+# parse args
 for arg in "$@"
 do       
-case $arg in
-	-n|--nocode)
-	vscode=false
-esac
+	case $arg in
+		-e|--env)
+			env=false
+			;;
+		-n|--nocode)
+			vscode=false
+			;;
+		*)
+			;;	
+	esac
 done
 
+# clean up
 git clone https://github.com/lewiswolf/personal-latex-template.git
 cp -a personal-latex-template/. .
 rm -rf personal-latex-template
@@ -19,6 +28,7 @@ rm -rf zotero
 rm .gitignore
 rm readme.md
 
+# configure editor settings
 if $vscode
 then
 	rm .editorconfig
@@ -26,11 +36,23 @@ else
 	rm -rf .vscode
 fi
 
-if ! command -v pipenv >/dev/null
+# if --env, install the minted package and pipenv
+# otherwise remove the files
+if $env
 then
-	echo "\033[0;91mWARNING\033[0m: pipenv is not installed."
-	echo "Either run 'rm .vscode/settings.json' and hope for the best..."
-	echo "Or nothing will work."
-	exit
+	mv .vscode/pipenv.json .vscode/settings.json
+	echo "\input{style/pipenv.tex}" >> style/template.tex
+	# pipenv install
+	if ! command -v pipenv >/dev/null
+	then
+		echo "\033[0;91mWARNING\033[0m: pipenv is not installed."
+		echo "Either run 'rm .vscode/settings.json' and hope for the best..."
+		echo "Or nothing will work."
+	else
+		pipenv install
+	fi
+else 
+	rm .vscode/pipenv.json
+	rm style/pipenv.tex
+	rm Pipfile
 fi
-pipenv install

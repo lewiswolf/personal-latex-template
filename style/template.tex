@@ -13,7 +13,6 @@
 \usepackage[hidelinks]{hyperref}		% makes things clickable
 \usepackage[nodoi]{apacite}				% bib style - APA
 \usepackage[sort&compress]{natbib}		% bib support for APA
-\usepackage{minted}						% syntax highlighting
 \usepackage{graphicx}					% import images with \includegraphics{filepath}
 \usepackage{xcolor}						% change font color with \textcolor{color}{text}
 \usepackage{pdfpages}					% include pdfs with \includepdf{link}
@@ -211,9 +210,6 @@
 \newrefformat{chapter}{\hyperref[{#1}]{chapter~\ref*{#1}}}
 \newrefformat{figure}{\hyperref[{#1}]{figure~\ref*{#1}}}
 \newrefformat{section}{\hyperref[{#1}]{section~\ref*{#1}}}
-
-% Default Code Styles
-\setminted{obeytabs=true, tabsize=4, fontsize=\small}
 
 % Math Operators
 \DeclareMathOperator*{\argmax}{argmax}

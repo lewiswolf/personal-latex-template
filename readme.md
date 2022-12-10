@@ -4,11 +4,11 @@ Of course, you need to have a LaTeX compiler installed, I personally use [MacTex
 
 This LaTeX template was designed to be used with VSCode. Upon opening the project directory in VSCode for the first time, you will be prompted to install the suggested extensions, which are required and preconfigured by this repository.
 
-This template also requires you to install [pipenv](https://pypi.org/project/pipenv/) or else everything breaks.
+This template also requires you to install [pipenv](https://pypi.org/project/pipenv/) if you want to use syntax highlighting for codeblocks.
 
 ## Usage
 
-The easiest way to get the template up and running is to download install.sh and run `$ sh install.sh` in your project directory. To opt for an editor-neutral approach, use `$ sh install.sh --nocode`, but you will need to configure your own build tasks ( `pipenv run pdflatex ...` ).
+The easiest way to get the template up and running is to download install.sh and run `$ sh install.sh` in your project directory. To opt for an editor-neutral approach, use `$ sh install.sh --nocode`, but you will need to configure your own build tasks ( `pdflatex ...` ).
 
 You can configure your document in index.tex, and easily switch between article, journal and report document types. Just uncomment the document type and all of the relevant preamble.
 
@@ -35,7 +35,7 @@ Custon mathematics operators include:
 \( \argmax \)
 ```
 
-If you want nice syntax highlighting:
+If you want nice syntax highlighting, you have to first install the project with `$ sh install.sh --env`:
 
 ```latex
 \begin{minted}{python}

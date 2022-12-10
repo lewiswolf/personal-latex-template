@@ -19,8 +19,10 @@
 	"latex-workshop.latex.tools": [
 		{
 			"name": "latexmk",
-			"command": "latexmk",
+			"command": "pipenv",
 			"args": [
+				"run",
+				"latexmk",
 				"--shell-escape",
 				"-synctex=1",
 				"-interaction=nonstopmode",
@@ -33,8 +35,10 @@
 		},
 		{
 			"name": "pdflatex",
-			"command": "pdflatex",
+			"command": "pipenv",
 			"args": [
+				"run",
+				"pdflatex",
 				"--shell-escape",
 				"-synctex=1",
 				"-interaction=nonstopmode",
@@ -45,10 +49,14 @@
 		},
 		{
 			"name": "bibtex",
-			"command": "bibtex",
-			"args": ["%DOCFILE%"],
+			"command": "pipenv",
+			"args": [
+				"run",
+				"bibtex",
+				"%DOCFILE%"
+			],
 			"env": {}
-		},
+		}
 	],
 	"latex-workshop.latex.autoBuild.run": "onSave",
 	"latex-workshop.latex.autoClean.run": "onBuilt",
