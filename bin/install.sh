@@ -55,6 +55,5 @@ then
 	fi
 else 
 	rm .vscode/pipenv.json
-	rm style/pipenv.tex
 	rm Pipfile
 fi
