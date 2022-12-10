@@ -8,7 +8,7 @@ for arg in "$@"
 do       
 	case $arg in
 		-e|--env)
-			env=false
+			env=true
 			;;
 		-n|--nocode)
 			vscode=false
@@ -41,7 +41,9 @@ fi
 if $env
 then
 	mv .vscode/pipenv.json .vscode/settings.json
-	echo "\input{style/pipenv.tex}" >> style/template.tex
+	echo "" >> style/template.tex
+	echo "\usepackage{minted}" >> style/template.tex
+	echo "\setminted{obeytabs=true, tabsize=4, fontsize=\small}" >> style/template.tex
 	# pipenv install
 	if ! command -v pipenv >/dev/null
 	then
