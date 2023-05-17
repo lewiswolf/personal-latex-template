@@ -2,6 +2,9 @@
 	"editor.insertSpaces": false,
 	"editor.detectIndentation": false,
 	"latex-workshop.bibtex-format.tab": "tab",
+	"latex-workshop.latex.autoBuild.run": "onSave",
+	"latex-workshop.latex.autoClean.run": "onBuilt",
+	"latex-workshop.latex.clean.method": "glob",
 	"latex-workshop.latex.clean.fileTypes": [
 		"*.aux",
 		"*/*.aux",
@@ -50,12 +53,8 @@
 			"env": {}
 		},
 	],
-	"latex-workshop.latex.autoBuild.run": "onSave",
-	"latex-workshop.latex.autoClean.run": "onBuilt",
-	"latex-workshop.view.pdf.viewer": "tab",
 	"latex-workshop.linting.chktex.enabled": false,
-	"cSpell.language": "en-GB",
-	"cSpell.enabledLanguageIds": [
-		"latex"
-	]
+	"latex-workshop.view.pdf.viewer": "tab",
+	"cSpell.enabledLanguageIds": ["latex"],
+	"cSpell.language": "en-GB, de-DE"
 }
