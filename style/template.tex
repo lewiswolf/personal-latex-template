@@ -7,7 +7,6 @@
 \usepackage{lmodern}					% default font
 \usepackage{amssymb}					% maths
 \usepackage{mathtools}					% maths
-\usepackage[euler]{textgreek}			% use greek characters outside of math mode
 \usepackage{musicography}				% simple music symbols
 \usepackage[none]{hyphenat}				% less word breaks more kerning
 \usepackage{prettyref}					% label and reference autoformatting
@@ -189,10 +188,20 @@
 		}{}
 	}
 
+	% Chapter Styles
+	\@ifclassloaded{report}{%
+		\renewcommand*{\chapter}{%
+			\if@openright\cleardoublepage\else\clearpage\fi
+            \global\@topnum\z@
+            \@afterindentfalse
+            \secdef\@chapter\@schapter
+		}
+	}
+
 	% Footnote Styles
 	\renewcommand*{\@makefntext}[1]{%
 		\vspace{4pt}
-		\parindent=0pt\hangindent=14pt 
+		\parindent=0pt\hangindent=13pt 
 		\noindent\hspace{10pt}\hb@xt@0pt{\hss\tiny{\raisebox{0.25em}{\@thefnmark}}} #1
 	}
 \makeatother
@@ -205,7 +214,13 @@
 \newdateformat{getDate}{\THEDAY~\monthname[\THEMONTH]~\THEYEAR}
 
 % Format Chapter Headings
-\titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter{ }}{0pt}{\Huge\bf}
+\titleformat{\chapter}[hang]{\Huge\bf}{\thechapter{ }}{0pt}{\Huge\bf}
+
+% Format section and subsection headings
+\titleformat*{\section}{\flushright\huge\bf}
+\titleformat*{\subsection}{\flushleft\Large\bf}
+\newcommand*{\sectionbreak}{\phantomsection}
+\setcounter{secnumdepth}{0}
 
 % Label and Reference Stylings
 \newrefformat{chapter}{\hyperref[{#1}]{chapter~\ref*{#1}}}
@@ -224,11 +239,11 @@
 \setfloatlocations{figure}{H}
 
 \AtBeginDocument{%
-	% Bibliography Styles
-	\bibliographystyle{apacite}
-	\renewcommand{\APACrefYearMonthDay}[3]{\BBOP{#1}\BBCP}
-	% Handle Word Breaks
-	\sloppy
 	% Set PDF Metadata
 	\hypersetup{pdfcreator={Lewis Wolstanholme's Personal LaTeX Template}}
+	% Bibliography Styles
+	\bibliographystyle{apacite}
+	\renewcommand*{\APACrefYearMonthDay}[3]{\BBOP{#1}\BBCP}
+	% Handle Word Breaks
+	\sloppy
 }
