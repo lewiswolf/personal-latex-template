@@ -164,9 +164,10 @@
 			\section*{\centering \bf Abstract}
 		}{%
 			\vspace*{\fill}
+			\pagebreak
 		}
 	}{
-		\renewenvironment{abstract}{%
+		\renewenvironment*{abstract}{%
 			\setlength{\parindent}{0pt}
 			\section*{\hspace{2cm}Abstract}
 			\small
@@ -175,6 +176,21 @@
 		}{%
 			\endlist\par\bigskip
 		}
+	}
+
+	% Acknowledgements Styles
+	\@ifclassloaded{report}{%
+		\newenvironment*{acknowledgements}{%
+			\vspace*{\fill}
+			\section*{\centering \bf Acknowledgements}
+		}{%
+			\vspace*{\fill}
+			\pagebreak
+		}
+	}{
+		\newenvironment*{acknowledgements}{%
+			\section*{Acknowledgements}
+		}{}
 	}
 
 	% Appendix Styles
