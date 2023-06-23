@@ -33,6 +33,9 @@ Custon mathematics operators include:
 ```latex
 \( \argmin \)
 \( \argmax \)
+\( \ceil{x} \)
+\( \floor{x} \)
+\( \round{x} \)
 ```
 
 If you want nice syntax highlighting, you have to first install the project with `$ sh install.sh --env`:
