@@ -1,30 +1,157 @@
 % spell-checker: disable
 % spellchecker: disable
+
+% Page Layout
 \usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+\usepackage[none]{hyphenat}				% less word breaks more kerning
+\usepackage[hidelinks]{hyperref}		% makes things clickable
+\setlength{\parindent}{30pt}
+\pagestyle{plain}
+\AtBeginDocument{%
+	% Set PDF Metadata
+	\hypersetup{pdfcreator={Lewis Wolstanholme's Personal LaTeX Template}}
+	% Handle Word Breaks
+	\sloppy
+}
+
+% Font Formatting
 \usepackage[utf8]{inputenc}				% ASCII encoding
 \usepackage[english]{babel}				% use this to add extra languages
 \usepackage[T1]{fontenc}				% font encoding
 \usepackage{lmodern}					% default font
+\usepackage{musicography}				% simple music symbols
+
+% Math Operators
 \usepackage{amssymb}					% maths
 \usepackage{mathtools}					% maths
-\usepackage{musicography}				% simple music symbols
-\usepackage[none]{hyphenat}				% less word breaks more kerning
-\usepackage{prettyref}					% label and reference autoformatting
-\usepackage[hidelinks]{hyperref}		% makes things clickable
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\DeclarePairedDelimiter{\round}{\lfloor}{\rceil}
+
+% Misc. Functions
+\usepackage{lipsum}						% lorem ipsum \lipsum[seed]
+\usepackage{xcolor}						% change font color with \textcolor{color}{text}
+\usepackage{graphicx}					% import images with \includegraphics{filepath}
+\usepackage{pdfpages}					% include pdfs with \includepdf{link}
+
+% Bibliography
 \usepackage[nodoi]{apacite}				% bib style - APA
 \usepackage[sort&compress]{natbib}		% bib support for APA
-\usepackage{graphicx}					% import images with \includegraphics{filepath}
-\usepackage{xcolor}						% change font color with \textcolor{color}{text}
-\usepackage{pdfpages}					% include pdfs with \includepdf{link}
+\usepackage{bibentry}					% print bibliography items within the text body
+\makeatletter%
+	\renewcommand*\BR@b@bibitem[2][]{\BR@bibitem[#1]{#2}\BR@c@bibitem{#2}}
+\makeatother
+\nobibliography*
+\bibliographystyle{apacite}
+\renewcommand*{\APACrefYearMonthDay}[3]{\BBOP{#1}\BBCP}
+
+% Chapter, Section & Subsection Headings
+\makeatletter%
+	\@ifclassloaded{report}{%
+		\usepackage{titlesec}					% chapter title formatting
+		\titleformat{\chapter}[hang]{\Huge\bf}{\thechapter{ }}{0pt}{\Huge\bf}
+		\renewcommand*{\chapter}{%
+			\if@openright\cleardoublepage\else\clearpage\fi
+			\global\@topnum\z@
+			\@afterindentfalse
+			\secdef\@chapter\@schapter
+		}
+		\titleformat*{\section}{\flushright\huge\bf}
+		\titleformat*{\subsection}{\flushleft\Large\bf}
+		\setcounter{secnumdepth}{0}
+	}{}
+\makeatother
+
+% Labels & References
+\usepackage{prettyref}					% label and reference autoformatting
+\newrefformat{chapter}{\hyperref[{#1}]{chapter~\ref*{#1}}}
+\newrefformat{equation}{\hyperref[{#1}]{eqaution~\ref*{#1}}}
+\newrefformat{figure}{\hyperref[{#1}]{figure~\ref*{#1}}}
+\newrefformat{section}{\hyperref[{#1}]{section~\ref*{#1}}}
+\newrefformat{table}{\hyperref[{#1}]{table~\ref*{#1}}}
+
+% Figures & Tables
 \usepackage{float}						% support for better figure placement
 \usepackage{subcaption}					% abaility to add subfigures (fig 1a, 1b, etc.)
 \usepackage{enumitem}					% support for better \begin{enumerate}
-\usepackage{titlesec}					% chapter title formatting
-\usepackage{lipsum}						% lorem ipsum \lipsum[seed]
-\usepackage{datetime}					% time itself
-
+% https://tex.stackexchange.com/questions/140568/how-to-set-default-positioning-of-figure-table-document-wide
 \makeatletter%
-	% Title Style for Article
+	\providecommand*\setfloatlocations[2]{\@namedef{fps@#1}{#2}}
+	\setfloatlocations{figure}{H}
+\makeatother
+
+% Footnotes
+\makeatletter%
+	\@ifclassloaded{report}{%
+		\usepackage{scrextend}					% style footnote and footnote mark
+		\usepackage{footmisc}					% fix issue where footnote doesn't float to botth of empty page
+		\deffootnote{10pt}{0pt}{\tiny{\raisebox{0.25em}{\thefootnotemark}} \enskip}
+	}{}
+\makeatother
+
+% Abstract
+\makeatletter%
+	\@ifclassloaded{report}{%
+		\renewenvironment*{abstract}{%
+			\vspace*{\fill}
+			\section*{\centering \bf Abstract}
+		}{%
+			\vspace*{\fill}
+			\pagebreak
+		}
+	}{
+		\renewenvironment*{abstract}{%
+			\vspace*{-22pt}
+			\setlength{\parindent}{0pt}
+			\section*{\hspace{2cm}Abstract}
+			\small
+			\list{}{\leftmargin2cm \rightmargin\leftmargin}
+			\item\relax
+		}{%
+			\endlist\par\bigskip
+		}
+	}
+\makeatother
+
+% Acknowledgements
+\makeatletter%
+	\@ifclassloaded{report}{%
+	\newenvironment*{acknowledgements}{%
+	\vspace*{\fill}
+			\section*{\centering \bf Acknowledgements}
+		}{%
+			\vspace*{\fill}
+			\pagebreak
+		}
+	}{
+		\newenvironment*{acknowledgements}{%
+			\section*{Acknowledgements}
+		}{}
+	}
+\makeatother
+
+% Appendix
+\makeatletter%
+	\@ifclassloaded{report}{%
+		\renewenvironment{appendix}{%
+			\renewcommand*{\thechapter}{\Alph{chapter}}
+			\renewcommand*{\thesection}{A.\arabic{section}}
+			\setcounter{chapter}{0}
+			\chapter*{Appendix}
+			\addcontentsline{toc}{chapter}{Appendix}
+		}{}
+	}
+\makeatother
+
+% Date
+\usepackage{datetime}					% time itself
+\newdateformat{getDate}{\THEDAY~\monthname[\THEMONTH]~\THEYEAR}
+
+% Titles
+\makeatletter%
+	% Article
 	\@ifclassloaded{article}{%
 		\renewcommand*{\title}[1]{\gdef\@title{%
 			\vspace{-16px}
@@ -42,7 +169,7 @@
 		}}
 	}{}
 
-	% Title Style for Journal
+	% Journal
 	\@ifclassloaded{journal}{%
 		\renewcommand*{\title}[1]{\gdef\@title{%
 			\vspace{-40px}
@@ -108,7 +235,7 @@
 		}
 	}{}
 
-	% Title Style for Report
+	% Report
 	\@ifclassloaded{report}{%
 		\renewcommand*{\author}[1]{\gdef\@author{%
 			% Set PDF Metadata
@@ -129,7 +256,7 @@
 		\renewcommand*{\maketitle}{%
 			\thispagestyle{empty}
 			\setcounter{page}{0}
-			\definecolor{bg}{RGB}{34, 31, 32}
+			\definecolor{bg}{RGB}{34, 34, 34}
 			\pagecolor{bg}
 			\color{white}
 			\begin{center}
@@ -156,113 +283,4 @@
 			\color{black}
 		}
 	}{}
-
-	% Abstract Styles
-	\@ifclassloaded{report}{%
-		\renewenvironment{abstract}{%
-			\vspace*{\fill}
-			\section*{\centering \bf Abstract}
-		}{%
-			\vspace*{\fill}
-			\pagebreak
-		}
-	}{
-		\renewenvironment*{abstract}{%
-			\setlength{\parindent}{0pt}
-			\section*{\hspace{2cm}Abstract}
-			\small
-			\list{}{\leftmargin2cm \rightmargin\leftmargin}
-			\item\relax
-		}{%
-			\endlist\par\bigskip
-		}
-	}
-
-	% Acknowledgements Styles
-	\@ifclassloaded{report}{%
-		\newenvironment*{acknowledgements}{%
-			\vspace*{\fill}
-			\section*{\centering \bf Acknowledgements}
-		}{%
-			\vspace*{\fill}
-			\pagebreak
-		}
-	}{
-		\newenvironment*{acknowledgements}{%
-			\section*{Acknowledgements}
-		}{}
-	}
-
-	% Appendix Styles
-	\@ifclassloaded{report}{%
-		\renewenvironment{appendix}{%
-			\renewcommand*{\thechapter}{\Alph{chapter}}
-			\renewcommand*{\thesection}{A.\arabic{section}}
-			\setcounter{chapter}{0}
-			\chapter*{Appendix}
-			\addcontentsline{toc}{chapter}{Appendix}
-		}{}
-	}
-
-	% Chapter Styles
-	\@ifclassloaded{report}{%
-		\renewcommand*{\chapter}{%
-			\if@openright\cleardoublepage\else\clearpage\fi
-            \global\@topnum\z@
-            \@afterindentfalse
-            \secdef\@chapter\@schapter
-		}
-	}
-
-	% Footnote Styles
-	\renewcommand*{\@makefntext}[1]{%
-		\vspace{4pt}
-		\parindent=0pt\hangindent=13pt 
-		\noindent\hspace{10pt}\hb@xt@0pt{\hss\tiny{\raisebox{0.25em}{\@thefnmark}}} #1
-	}
 \makeatother
-
-% Page Layout
-\setlength{\parindent}{30pt}
-\pagestyle{plain}
-
-% Format Date
-\newdateformat{getDate}{\THEDAY~\monthname[\THEMONTH]~\THEYEAR}
-
-% Format Chapter Headings
-\titleformat{\chapter}[hang]{\Huge\bf}{\thechapter{ }}{0pt}{\Huge\bf}
-
-% Format section and subsection headings
-\titleformat*{\section}{\flushright\huge\bf}
-\titleformat*{\subsection}{\flushleft\Large\bf}
-\newcommand*{\sectionbreak}{\phantomsection}
-\setcounter{secnumdepth}{0}
-
-% Label and Reference Stylings
-\newrefformat{chapter}{\hyperref[{#1}]{chapter~\ref*{#1}}}
-\newrefformat{figure}{\hyperref[{#1}]{figure~\ref*{#1}}}
-\newrefformat{section}{\hyperref[{#1}]{section~\ref*{#1}}}
-
-% Math Operators
-\DeclareMathOperator*{\argmax}{argmax}
-\DeclareMathOperator*{\argmin}{argmin}
-\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
-\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
-\DeclarePairedDelimiter{\round}{\lfloor}{\rceil}
-
-% Default Figure Styles
-% https://tex.stackexchange.com/questions/140568/how-to-set-default-positioning-of-figure-table-document-wide
-\makeatletter%
-	\providecommand*\setfloatlocations[2]{\@namedef{fps@#1}{#2}}
-\makeatother
-\setfloatlocations{figure}{H}
-
-\AtBeginDocument{%
-	% Set PDF Metadata
-	\hypersetup{pdfcreator={Lewis Wolstanholme's Personal LaTeX Template}}
-	% Bibliography Styles
-	\bibliographystyle{apacite}
-	\renewcommand*{\APACrefYearMonthDay}[3]{\BBOP{#1}\BBCP}
-	% Handle Word Breaks
-	\sloppy
-}
