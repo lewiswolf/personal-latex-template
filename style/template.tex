@@ -50,7 +50,7 @@
 % Chapter, Section & Subsection Headings
 \makeatletter%
 	\@ifclassloaded{report}{%
-		\usepackage{titlesec}					% chapter title formatting
+		\usepackage{titlesec}			% chapter title formatting
 		\titleformat{\chapter}[hang]{\Huge\bf}{\thechapter{ }}{0pt}{\Huge\bf}
 		\renewcommand*{\chapter}{%
 			\if@openright\cleardoublepage\else\clearpage\fi
@@ -85,8 +85,8 @@
 % Footnotes
 \makeatletter%
 	\@ifclassloaded{report}{%
-		\usepackage{scrextend}					% style footnote and footnote mark
-		\usepackage{footmisc}					% fix issue where footnote doesn't float to botth of empty page
+		\usepackage{scrextend}			% style footnote and footnote mark
+		\usepackage{footmisc}			% fix issue where footnote doesn't float to botth of empty page
 		\deffootnote{10pt}{0pt}{\tiny{\raisebox{0.25em}{\thefootnotemark}} \enskip}
 	}{}
 \makeatother
