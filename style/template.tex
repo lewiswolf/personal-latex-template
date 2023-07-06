@@ -84,11 +84,11 @@
 
 % Footnotes
 \makeatletter%
-	\@ifclassloaded{report}{%
+	\@ifclassloaded{journal}{}{%
 		\usepackage{scrextend}			% style footnote and footnote mark
 		\usepackage{footmisc}			% fix issue where footnote doesn't float to botth of empty page
 		\deffootnote{10pt}{0pt}{\tiny{\raisebox{0.25em}{\thefootnotemark}} \enskip}
-	}{}
+	}
 \makeatother
 
 % Abstract
