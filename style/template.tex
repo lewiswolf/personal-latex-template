@@ -254,15 +254,18 @@
 			\hypersetup{pdfauthor={#1}}
 			#1
 		}}
-		\renewcommand*{\title}[1]{\gdef\@title{%
-			% Set PDF Metadata
-			\hypersetup{pdftitle={#1}}
+		\newcommand*{\institution}[1]{\gdef\@institution{%
 			#1
 		}}
 		\newcommand*{\project}[1]{\gdef\@project{%
 			#1
 		}}
-		\newcommand*{\institution}[1]{\gdef\@institution{%
+		\newcommand*{\supervisors}[1]{\gdef\@supervisors{%
+			#1
+		}}
+		\renewcommand*{\title}[1]{\gdef\@title{%
+			% Set PDF Metadata
+			\hypersetup{pdftitle={#1}}
 			#1
 		}}
 		\renewcommand*{\maketitle}{%
@@ -290,8 +293,16 @@
 				\vspace*{\fill}
 			\end{center}
 			\cleardoublepage{}
+			\pagenumbering{roman}
 			\pagecolor{white}
 			\color{black}
+			\vspace*{\fill}
+			\begin{center}
+				\textit{under the supervision of} \\
+				\@supervisors
+			\end{center}
+			\vspace*{\fill}
+			\cleardoublepage{}
 		}
 	}{}
 \makeatother
