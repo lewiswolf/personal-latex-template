@@ -32,9 +32,10 @@
 
 % Misc. Functions
 \usepackage{lipsum}						% lorem ipsum \lipsum[seed]
-\usepackage{xcolor}						% change font color with \textcolor{color}{text}
 \usepackage{graphicx}					% import images with \includegraphics{filepath}
 \usepackage{pdfpages}					% include pdfs with \includepdf{link}
+\usepackage{xcolor}						% change font color with \textcolor{color}{text}
+\definecolor{off_black}{RGB}{34, 34, 34}
 
 % Bibliography
 \usepackage[nodoi]{apacite}				% bib style - APA
@@ -146,11 +147,21 @@
 	}
 \makeatother
 
+% End Page
+\makeatletter%
+	\@ifclassloaded{report}{\AtEndDocument{%
+		\cleardoublepage
+		\null
+		\thispagestyle{empty}
+		\pagecolor{off_black}
+	}}{}
+\makeatother
+
 % Date
 \usepackage{datetime}					% time itself
 \newdateformat{getDate}{\THEDAY~\monthname[\THEMONTH]~\THEYEAR}
 
-% Titles
+% Title
 \makeatletter%
 	% Article
 	\@ifclassloaded{article}{%
@@ -257,8 +268,7 @@
 		\renewcommand*{\maketitle}{%
 			\thispagestyle{empty}
 			\setcounter{page}{0}
-			\definecolor{bg}{RGB}{34, 34, 34}
-			\pagecolor{bg}
+			\pagecolor{off_black}
 			\color{white}
 			\begin{center}
 				\renewcommand*{\baselinestretch}{1.2}
