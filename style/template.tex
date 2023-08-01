@@ -137,13 +137,18 @@
 % Appendix
 \makeatletter%
 	\@ifclassloaded{report}{%
-		\renewenvironment{appendix}{%
+		\renewenvironment*{appendix}{%
 			\renewcommand*{\thechapter}{\Alph{chapter}}
 			\renewcommand*{\thesection}{A.\arabic{section}}
 			\setcounter{chapter}{0}
 			\chapter*{Appendix}
 			\addcontentsline{toc}{chapter}{Appendix}
 		}{}
+	}{
+		\renewenvironment*{appendix}{%
+			\section*{Appendix}
+		}{}
+
 	}
 \makeatother
 
