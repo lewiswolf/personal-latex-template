@@ -152,6 +152,10 @@
 	}
 \makeatother
 
+% Date
+\usepackage{datetime}					% time itself
+\newdateformat{getDate}{\THEDAY~\monthname[\THEMONTH]~\THEYEAR}
+
 % End Page
 \makeatletter%
 	\@ifclassloaded{report}{\AtEndDocument{%
@@ -161,10 +165,6 @@
 		\pagecolor{off_black}
 	}}{}
 \makeatother
-
-% Date
-\usepackage{datetime}					% time itself
-\newdateformat{getDate}{\THEDAY~\monthname[\THEMONTH]~\THEYEAR}
 
 % Title
 \makeatletter%
