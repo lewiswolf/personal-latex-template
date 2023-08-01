@@ -66,13 +66,9 @@
 	}{}
 \makeatother
 
-% Labels & References
-\usepackage{prettyref}					% label and reference autoformatting
-\newrefformat{chapter}{\hyperref[{#1}]{chapter~\ref*{#1}}}
-\newrefformat{equation}{\hyperref[{#1}]{eqaution~\ref*{#1}}}
-\newrefformat{figure}{\hyperref[{#1}]{figure~\ref*{#1}}}
-\newrefformat{section}{\hyperref[{#1}]{section~\ref*{#1}}}
-\newrefformat{table}{\hyperref[{#1}]{table~\ref*{#1}}}
+% Date
+\usepackage{datetime}					% time itself
+\newdateformat{getDate}{\THEDAY~\monthname[\THEMONTH]~\THEYEAR}
 
 % Figures & Tables
 \usepackage{float}						% support for better figure placement
@@ -92,6 +88,14 @@
 		\deffootnote{10pt}{0pt}{\tiny{\raisebox{0.25em}{\thefootnotemark}} \enskip}
 	}
 \makeatother
+
+% Labels & References
+\usepackage{prettyref}					% label and reference autoformatting
+\newrefformat{chapter}{\hyperref[{#1}]{chapter~\ref*{#1}}}
+\newrefformat{equation}{\hyperref[{#1}]{eqaution~\ref*{#1}}}
+\newrefformat{figure}{\hyperref[{#1}]{figure~\ref*{#1}}}
+\newrefformat{section}{\hyperref[{#1}]{section~\ref*{#1}}}
+\newrefformat{table}{\hyperref[{#1}]{table~\ref*{#1}}}
 
 % Abstract
 \makeatletter%
@@ -151,10 +155,6 @@
 
 	}
 \makeatother
-
-% Date
-\usepackage{datetime}					% time itself
-\newdateformat{getDate}{\THEDAY~\monthname[\THEMONTH]~\THEYEAR}
 
 % End Page
 \makeatletter%
