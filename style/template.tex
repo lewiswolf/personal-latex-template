@@ -108,6 +108,7 @@
 			\pagebreak
 		}
 	}{
+		% Indented abstract
 		\renewenvironment*{abstract}{%
 			\vspace*{-22pt}
 			\setlength{\parindent}{0pt}
@@ -118,6 +119,10 @@
 		}{%
 			\endlist\par\bigskip
 		}
+		% Unindented abstract
+		\newenvironment*{abstract*}{%
+			\section*{Abstract}
+		}{}
 	}
 \makeatother
 
