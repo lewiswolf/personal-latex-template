@@ -13,7 +13,6 @@
 	% Handle Word Breaks
 	\sloppy
 }
-
 % Font Formatting
 \usepackage[utf8]{inputenc}				% ASCII encoding
 \usepackage[english]{babel}				% use this to add extra languages
@@ -52,15 +51,15 @@
 \makeatletter%
 	\@ifclassloaded{report}{%
 		\usepackage{titlesec}			% chapter title formatting
-		\titleformat{\chapter}[hang]{\Huge\bf}{\thechapter{ }}{0pt}{\Huge\bf}
+		\titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter{ }}{0pt}{\Huge\bfseries}
 		\renewcommand*{\chapter}{%
 			\if@openright\cleardoublepage\else\clearpage\fi
 			\global\@topnum\z@
 			\@afterindentfalse
 			\secdef\@chapter\@schapter
 		}
-		\titleformat*{\section}{\flushright\huge\bf}
-		\titleformat*{\subsection}{\flushleft\Large\bf}
+		\titleformat*{\section}{\flushright\huge\bfseries}
+		\titleformat*{\subsection}{\flushleft\Large\bfseries}
 		\setcounter{secnumdepth}{0}
 		\AtBeginDocument{\setcounter{chapter}{-1}}
 	}{}
@@ -102,7 +101,7 @@
 	\@ifclassloaded{report}{%
 		\renewenvironment*{abstract}{%
 			\vspace*{\fill}
-			\section*{\centering \bf Abstract}
+			\section*{\centering \bfseries Abstract}
 		}{%
 			\vspace*{\fill}
 			\pagebreak
@@ -131,7 +130,7 @@
 	\@ifclassloaded{report}{%
 	\newenvironment*{acknowledgements}{%
 	\vspace*{\fill}
-			\section*{\centering \bf Acknowledgements}
+			\section*{\centering \bfseries Acknowledgements}
 		}{%
 			\vspace*{\fill}
 			\pagebreak
@@ -287,9 +286,9 @@
 				\renewcommand*{\baselinestretch}{1.2}
 				\phantom{.} \par
 				\vspace*{\fill}
-				{\Huge \bf \@title \par}
+				{\Huge \bfseries \@title \par}
 				\vspace{1cm}
-				{\LARGE \it \@author \par}
+				{\LARGE \itshape \@author \par}
 				\vspace{3cm}
 				\vspace*{\fill}
 				\includegraphics[height=70pt]{./style/images/logo-white.png} \par
