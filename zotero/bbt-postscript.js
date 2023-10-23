@@ -5,6 +5,9 @@ For information on installing these scripts, see here =>
 */
 
 if (Translator.BetterBibTeX) {
+	// remove file from bibtex
+	reference.remove('file')
+	// configure specific entry types
 	switch (item.itemType) {
 		// format an artwork
 		case 'artwork':
@@ -61,8 +64,9 @@ if (Translator.BetterBibTeX) {
 					bibtex: `{${item.accessDate.replace(/\s*T?\d+:\d+:\d+.*/, '')}}`,
 				})
 			}
-		// add url and urldate to webpage citations
+		// format a webpage
 		case 'webpage':
+			// add url and urldate
 			reference.remove('howpublished')
 			if (item.url) {
 				reference.add({
