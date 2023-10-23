@@ -36,14 +36,6 @@ if (Translator.BetterBibTeX) {
 					bibtex: `{${item.libraryCatalog}}`,
 				})
 			}
-		// format a dataset
-		case 'dataset':
-			if (item.versionNumber) {
-				refernce.add({
-					name: 'extra',
-					bibtex: `Version: ${item.versionNumber}`
-				})
-			}
 			break
 		// format a video recording
 		case 'videoRecording':
@@ -73,6 +65,7 @@ if (Translator.BetterBibTeX) {
 					bibtex: `{${item.accessDate.replace(/\s*T?\d+:\d+:\d+.*/, '')}}`,
 				})
 			}
+			break
 		// format a webpage
 		case 'webpage':
 			// add url and urldate
@@ -89,6 +82,7 @@ if (Translator.BetterBibTeX) {
 					bibtex: `{${item.accessDate.replace(/\s*T?\d+:\d+:\d+.*/, '')}}`,
 				})
 			}
+			break
 		// do nothing if default case
 		default:
 			break
