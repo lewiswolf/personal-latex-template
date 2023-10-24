@@ -37,6 +37,24 @@ if (Translator.BetterBibTeX) {
 				})
 			}
 			break
+		// format a dataset
+		case 'dataset':
+			// change publisher to howpublished
+			if (item.publisher) {
+				reference.remove('publisher')
+				reference.add({
+					name: 'howpublished',
+					bibtex: `{${item.publisher}}`,
+				})
+			}
+			// add version number	
+			if (item.versionNumber) {
+				reference.add({
+					name: 'note',
+					bibtex: `{{{Version: ${item.versionNumber}}}}`
+				})
+			}
+			break
 		// format a video recording
 		case 'videoRecording':
 			// merge producer and director fields
