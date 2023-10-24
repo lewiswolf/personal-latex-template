@@ -57,5 +57,13 @@
 	"latex-workshop.linting.chktex.enabled": false,
 	"latex-workshop.view.pdf.viewer": "tab",
 	"cSpell.enabledLanguageIds": ["latex"],
-	"cSpell.language": "en-GB, de-DE"
+	// add extra languages globally
+	"cSpell.language": "en-GB",
+	"cSpell.overrides": [
+		// add extra languages per file
+        // {
+        //     "filename": "**/src/...",
+        //     "language": "en-GB, de-DE, es-ES"
+        // },
+    ]
 }
