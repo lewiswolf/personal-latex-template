@@ -62,8 +62,14 @@
 	"latex-workshop.latex.autoClean.run": "onBuilt",
 	"latex-workshop.view.pdf.viewer": "tab",
 	"latex-workshop.linting.chktex.enabled": false,
+	"cSpell.enabledLanguageIds": ["latex", "markdown"],
+	// add extra languages globally
 	"cSpell.language": "en-GB",
-	"cSpell.enabledLanguageIds": [
-		"latex"
-	]
+	"cSpell.overrides": [
+		// add extra languages per file
+        // {
+        //     "filename": "**/src/...",
+        //     "language": "en-GB, de-DE, es-ES"
+        // },
+    ]
 }

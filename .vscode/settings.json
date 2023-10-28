@@ -56,7 +56,7 @@
 	],
 	"latex-workshop.linting.chktex.enabled": false,
 	"latex-workshop.view.pdf.viewer": "tab",
-	"cSpell.enabledLanguageIds": ["latex"],
+	"cSpell.enabledLanguageIds": ["latex", "markdown"],
 	// add extra languages globally
 	"cSpell.language": "en-GB",
 	"cSpell.overrides": [

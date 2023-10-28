@@ -47,9 +47,9 @@ then
 	# pipenv install
 	if ! command -v pipenv >/dev/null
 	then
-		echo "\033[0;91mWARNING\033[0m: pipenv is not installed."
-		echo "Either run 'rm .vscode/settings.json' and hope for the best..."
-		echo "Or nothing will work."
+		echo "\033[0;91mWARNING\033[0m: pipenv is required to use the --env argument."
+		echo "Please install pipenv and then build your project again:"
+		echo "	https://formulae.brew.sh/formula/pipenv"
 	else
 		pipenv install
 	fi
