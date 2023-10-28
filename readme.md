@@ -87,7 +87,7 @@ Each document class comes packaged with customised abstract, acknowledgement, an
 The bibliography and `.bib` files should be configured as follows. I'm a big fan of the APA citation style, so to cite something use `\citep{}` for a parenthetical citation or `\citet{}` for a text-style citation. You can also use `\bibentry{}` to print a full reference in the text body.
 
 ```latex
-\bibliography{
+\bibliography{%
 	./src/bib_1.bib,
 	./src/bib_2.bib
 }

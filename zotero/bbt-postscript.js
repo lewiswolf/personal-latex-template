@@ -5,8 +5,9 @@ For information on installing these scripts, see here =>
 */
 
 if (Translator.BetterBibTeX) {
-	// remove file from bibtex
+	// remove file and keywords from bibtex
 	reference.remove('file')
+	reference.remove('keywords')
 	// configure specific entry types
 	switch (item.itemType) {
 		// format an artwork
