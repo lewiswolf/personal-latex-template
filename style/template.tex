@@ -309,17 +309,20 @@
 				\vspace*{\fill}
 			\end{center}
 			\cleardoublepage{}
-			\thispagestyle{empty}
-			\pagecolor{white}
-			\color{black}
-			\vspace*{\fill}
-			\begin{center}
-				\textit{under the supervision of} \\
-				\@supervisors
-			\end{center}
-			\vspace*{\fill}
-			\cleardoublepage{}
-			\addtocounter{page}{-1}
+			\ifx\@supervisors\undefined
+			\else
+				\thispagestyle{empty}
+				\pagecolor{white}
+				\color{black}
+				\vspace*{\fill}
+				\begin{center}
+					\textit{under the supervision of} \\
+					\@supervisors
+				\end{center}
+				\vspace*{\fill}
+				\cleardoublepage{}
+				\addtocounter{page}{-1}
+			\fi
 			\pagenumbering{roman}
 		}
 	}{}
