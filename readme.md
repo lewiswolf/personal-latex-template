@@ -84,7 +84,7 @@ Each document class comes packaged with customised abstract, acknowledgement, an
 \end{appendix}
 ```
 
-The bibliography and `.bib` files should be configured as follows. I'm a big fan of the APA citation style, so to cite something use `\citep{}` for a parenthetical citation or `\citet{}` for a text-style citation. 
+The bibliography and `.bib` files should be configured as follows. I'm a big fan of the APA citation style, so to cite something use `\citep{}` for a parenthetical citation or `\citet{}` for a text-style citation. You can also use `\bibentry{}` to print a full reference in the text body.
 
 ```latex
 \bibliography{
@@ -119,6 +119,20 @@ Custon mathematics operators include:
 \( \round{x} \)
 ```
 
+You can customise the VSCode spell checker in `.vscode/settings.json`, by editing the lines:
+
+```json
+// add extra languages globally
+"cSpell.language": "en-GB",
+"cSpell.overrides": [
+	// add extra languages per file
+	// {
+	//     "filename": "**/src/...",
+	//     "language": "en-GB, de-DE, es-ES"
+	// },
+]
+```
+
 If you want nice syntax highlighting, you have to first install the project with `mktex --env`, and then:
 
 ```latex
@@ -131,12 +145,16 @@ Labels and cross references are automatically formatted and clickable:
 
 ```latex
 \chapter{Some Chapter}\label{chapter:chap1}
+\begin{equation}\label{equation:eq1}\end{equation}
 \begin{figure}\label{figure:fig1}\end{figure}
 \section{Some Section}\label{section:sec1}
+\begin{table}\label{table:tab1}\end{table}
 
 \prettyref{chapter:chap1}
+\prettyref{figure:eq1}
 \prettyref{figure:fig1}
 \prettyref{section:sec1}
+\prettyref{figure:tab1}
 ```
 
 Add images with `\includegraphics[options]{filepath}`.
