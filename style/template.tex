@@ -309,7 +309,7 @@
 				\vspace*{\fill}
 			\end{center}
 			\cleardoublepage{}
-			\pagenumbering{roman}
+			\thispagestyle{empty}
 			\pagecolor{white}
 			\color{black}
 			\vspace*{\fill}
@@ -319,6 +319,8 @@
 			\end{center}
 			\vspace*{\fill}
 			\cleardoublepage{}
+			\addtocounter{page}{-1}
+			\pagenumbering{roman}
 		}
 	}{}
 \makeatother
