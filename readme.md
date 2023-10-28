@@ -109,7 +109,7 @@ All the cool maths packages are installed so your functions can be extra:
 \[ \mathcal{L} \mathbb{I} \mathsf{T} \]
 ```
 
-Custon mathematics operators include:
+Custom mathematics operators include:
 
 ```latex
 \( \argmin \)
@@ -132,6 +132,26 @@ You can customise the VSCode spell checker in `.vscode/settings.json`, by editin
 	// },
 ]
 ```
+
+For an image, which can accredited at the end of the document using `\listofimages`, caption it using:
+
+```latex
+\begin{figure}
+	\includegraphics[options]{filepath}
+	\captionsetup{labelformat=empty, textformat=empty}
+	\caption{}
+\end{figure}
+```
+
+And for a regular figure use:
+
+```latex
+\begin{figure}
+	\includegraphics[options]{filepath}
+	\caption*{}
+\end{figure}
+```
+
 
 If you want nice syntax highlighting, you have to first install the project with `mktex --env`, and then:
 

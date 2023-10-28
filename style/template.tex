@@ -30,10 +30,18 @@
 
 % Misc. Functions
 \usepackage{lipsum}						% lorem ipsum \lipsum[seed]
-\usepackage{graphicx}					% import images with \includegraphics{filepath}
 \usepackage{pdfpages}					% include pdfs with \includepdf{link}
 \usepackage{xcolor}						% change font color with \textcolor{color}{text}
 \definecolor{off_black}{RGB}{34, 34, 34}
+
+% Images
+\usepackage{graphicx}					% import images with \includegraphics{filepath}
+\usepackage[listformat=empty]{caption}	% use the \captionsetup command to format list of images
+\usepackage{tocloft}					% format list of figures
+\setlength{\cftfigindent}{0pt}
+\setlength{\cftfignumwidth}{0pt}
+\newcommand*{\listofimages}{\listoffigures}
+\addto\captionsenglish{\renewcommand*{\listfigurename}{Images}}
 
 % Bibliography
 \usepackage[nodoi]{apacite}				% bib style - APA
