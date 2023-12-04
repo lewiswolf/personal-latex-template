@@ -40,8 +40,13 @@
 \usepackage{tocloft}					% format list of figures
 \setlength{\cftfigindent}{0pt}
 \setlength{\cftfignumwidth}{0pt}
-\newcommand*{\listofimages}{\listoffigures}
 \addto\captionsenglish{\renewcommand*{\listfigurename}{Images}}
+\newcommand*{\listofimages}{%
+	\phantomsection{}
+	\addcontentsline{toc}{chapter}{\listfigurename}
+	\vspace*{1em}
+	\listoffigures
+}
 
 % Bibliography
 \usepackage[nodoi]{apacite}				% bib style - APA
