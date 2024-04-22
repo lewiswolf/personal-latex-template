@@ -171,10 +171,10 @@ Labels and cross references are automatically formatted and clickable:
 \begin{table}\label{table:tab1}\end{table}
 
 \prettyref{chapter:chap1}
-\prettyref{figure:eq1}
+\prettyref{equation:eq1}
 \prettyref{figure:fig1}
 \prettyref{section:sec1}
-\prettyref{figure:tab1}
+\prettyref{table:tab1}
 ```
 
 Add images with `\includegraphics[options]{filepath}`.
