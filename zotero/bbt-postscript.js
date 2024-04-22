@@ -48,22 +48,31 @@ if (Translator.BetterBibTeX) {
 					bibtex: `{${item.publisher}}`,
 				})
 			}
-			// add version number	
+			// add version number
 			if (item.versionNumber) {
 				reference.add({
 					name: 'note',
-					bibtex: `{{{Version: ${item.versionNumber}}}}`
+					bibtex: `{{{Version: ${item.versionNumber}}}}`,
 				})
 			}
 			break
+		// format a thesis
+		case 'thesis':
+			// add document type
+			if (item.type) {
+				reference.add({
+					name: 'type',
+					bibtex: `{${item.type}}`,
+				})
+			}
 		// format a video recording
 		case 'videoRecording':
 			// merge producer and director fields
 			for (const creator of item.creators) {
-				creator.creatorType = creator.creatorType === 'director'
-					|| creator.creatorType === 'producer'
-					? 'director' // not sure why, but author did not work here
-					: content.creatorType
+				creator.creatorType =
+					creator.creatorType === 'director' || creator.creatorType === 'producer'
+						? 'director' // not sure why, but author did not work here
+						: content.creatorType
 			}
 			reference.addCreators()
 			// add format
