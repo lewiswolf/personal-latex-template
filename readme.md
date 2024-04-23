@@ -121,7 +121,7 @@ Custom mathematics operators include:
 
 You can customise the VSCode spell checker in `.vscode/settings.json`, by editing the lines:
 
-```
+```json
 // add extra languages globally
 "cSpell.language": "en-GB",
 "cSpell.overrides": [
