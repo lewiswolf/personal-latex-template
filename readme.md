@@ -27,7 +27,7 @@ cd my_dir
 mktex
 ```
 
-If you are using VSCode, this template is preconfigured to build the project whenever any of the `.tex` files are saved. If you do not wish to use VSCode, you can run `mktex --nocode` and the template will be environmentally neutral. You will need to configure your own build script, however an example build script is provided in `./bin.build.sh`.
+If you are using VSCode, this template is preconfigured to build the project whenever any of the `.tex` files are saved. If you do not wish to use VSCode, you can run `mktex --nocode` and the template will be environmentally neutral. You will need to configure your own build script, however an example build script is provided in `./bin/build.sh`.
 
 If in your LaTeX you want to use codeblocks with syntax highlighting, you will first need to make sure python and [pipenv](https://pypi.org/project/pipenv/) are installed, and then run `mktex --env` to initialise your project. If you use `--env` in combination with the `--nocode` flag, you will also need to refer to the alternative build script `./bin/build-pipenv.sh`.
 
