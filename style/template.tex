@@ -42,7 +42,8 @@
 \usepackage{tocloft}					% format list of figures
 \setlength{\cftfigindent}{0pt}
 \setlength{\cftfignumwidth}{0pt}
-\addto\captionsenglish{\renewcommand*{\listfigurename}{Images}}
+\setlength{\cftbeforefigskip}{0.8em}
+\addto\captionsenglish{\renewcommand*{\listfigurename}{Images \vspace*{-0.2em}}}
 \newcommand*{\listofimages}{%
 	\phantomsection{}
 	\addcontentsline{toc}{chapter}{\listfigurename}
@@ -60,6 +61,7 @@
 \nobibliography*
 \bibliographystyle{apacite}
 \renewcommand*{\APACrefYearMonthDay}[3]{\BBOP{#1}\BBCP}
+\setlength{\bibsep}{0.8em}
 
 % Chapter, Section & Subsection Headings
 \makeatletter%
