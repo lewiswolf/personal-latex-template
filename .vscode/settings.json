@@ -9,6 +9,7 @@
 		"*/*.aux",
 		"*.bbl",
 		"*.blg",
+		"*.cut",
 		"*.fdb_latexmk",
 		"*.fls",
 		"*.lof",
@@ -56,7 +57,7 @@
 	],
 	"latex-workshop.linting.chktex.enabled": false,
 	"latex-workshop.view.pdf.viewer": "tab",
-	"cSpell.enabledLanguageIds": ["latex", "markdown"],
+	"cSpell.enabledFileTypes": {"latex": true, "markdown": true},
 	// add extra languages globally
 	"cSpell.language": "en-GB",
 	"cSpell.overrides": [
